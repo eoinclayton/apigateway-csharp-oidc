@@ -1,0 +1,31 @@
+
+service: helloworldoidc
+
+provider:
+  name: aws
+  runtime: dotnetcore2.1
+  region: ap-southeast-2
+  environment:
+      OIDC_ISSUER: https://issuer_goes_here.com
+
+package:
+  artifact: bin/release/netcoreapp2.1/hello.zip
+
+functions:
+  oidcauthorizer:
+    name: oidcauthorizer
+    handler: CsharpHandlers::AwsDotnetCsharp.Authorizer::Authorize
+    environment:
+      UNWRAP_AGGREGATE_EXCEPTIONS: 1  # workaround for dotnet core lambda issue with exceptions: https://github.com/aws/aws-lambda-dotnet/issues/293
+    
+  hello:
+    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
+    events:
+      - http:
+          path: helloworld
+          method: get
+          cors: true
+          authorizer:
+              name: oidcauthorizer
+              type: token
+          
