@@ -7,6 +7,7 @@ This repo therefore is a stripped down HelloWorld solution which shows just what
 
 This AWS-sourced diagram shows the basic workflow involved:
 ![Workflow](docs/img/aws-custom-auth-workflow.png)
+
 In short, requests that come into API Gateway will be authorized by a Lambda Authorization function and if the auth succeeds, the request can proceed.
 
 ## Prerequisites
