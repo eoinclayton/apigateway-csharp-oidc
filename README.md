@@ -5,6 +5,10 @@
 I started investigating how to use AWS API Gateway with Open Id Connect authorization for one of my work projects, but struggled to find straightforward examples.
 This repo therefore is a stripped down HelloWorld solution which shows just what you need for API Gateway + Lambda Authorization with dotnet core + OIDC.
 
+This AWS-sourced diagram shows the basic workflow involved:
+![Workflow](docs/img/aws-custom-auth-workflow.png)
+In short, requests that come into API Gateway will be authorized by a Lambda Authorization function and if the auth succeeds, the request can proceed.
+
 ## Prerequisites
 
 You will need an AWS account with the AWS cli installed and working
