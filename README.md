@@ -53,7 +53,7 @@ functions:
 Be sure to take note of the endpoint. You'll need it later.
 
 The deployment will setup an API Gateway api within your AWS account with a Lambda Authorizer:
-![Postman headers](docs/img/AwsConsoleApiGatewayAuthorizer.png)
+![AWS Console](docs/img/AwsConsoleApiGatewayAuthorizer.png)
 
 ## Once deployed, how to use?
 
@@ -65,14 +65,12 @@ The deployment will setup an API Gateway api within your AWS account with a Lamb
 | ------------- | ------------- |
 | Authorization | {Put your jwt access token here. No need for "Bearer ".} |
 
-![Postman headers](docs/img/PostmanSetup.png)
-
 3. HTTP Verb: GET
 
 4. Enter the endpoint from the deploy step above as the request url
 
 5. Hit send. All going well you'll get back a Hello World response
-![Postman headers](docs/img/ResponseSuccess.png)
+![Response Success](docs/img/ResponseSuccess.png)
 
 If your token is invalid or expired, you will get a 401 Unauthorized response:
-![Postman headers](docs/img/ResponseBadToken.png)
+![Response bad token](docs/img/ResponseBadToken.png)
